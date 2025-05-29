@@ -19,3 +19,5 @@ function App() {
 }
 
 export default App;
+
+// use npm run dev to start the frontend 
