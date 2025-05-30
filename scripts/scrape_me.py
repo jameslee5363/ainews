@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-
-# Scraper for Middle East Eye articles
+import json
+from datetime import datetime
 
 ME_BASE_URL = "https://www.middleeasteye.net"
 ME_TOPIC_URL = f"{ME_BASE_URL}/topics/israel-war-gaza"
-
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 def me_get_article_links():
@@ -25,25 +24,47 @@ def me_get_article_links():
         if 'href' in a.attrs:
             links.append(ME_BASE_URL + a['href'])
 
-    return links[:3]  # Limit for brevity
+    return list(set(links))  # De-duplicate
+
 
 def me_extract_article_text(url):
     res = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(res.text, "html.parser")
+
+    # Get title
+    title_tag = soup.find("h1")
+    title = title_tag.get_text(strip=True) if title_tag else "Untitled"
+
+    # Get content
     paragraphs = soup.find_all("p")
     content = "\n\n".join(p.get_text(strip=True) for p in paragraphs)
-    return content
+
+    # Get date (optional enhancement)
+    date_tag = soup.find("time")
+    published = date_tag.get("datetime") if date_tag else None
+
+    return {
+        "source": "Middle East Eye",
+        "title": title,
+        "url": url,
+        "published": published,
+        "content": content
+    }
 
 
 # Main runner
 if __name__ == "__main__":
-
     print("=== MIDDLE EAST EYE ARTICLES ===")
     me_article_links = me_get_article_links()
-    for i, url in enumerate(me_article_links):
-        print(f"\n--- ME Article {i+1}: {url} ---\n")
-        article_text = me_extract_article_text(url)
-        print(article_text[:3000])
-        print("\n" + "="*80 + "\n")
 
-    
+    articles = []
+    for i, url in enumerate(me_article_links[:5]):  # Limit for now
+        print(f"Fetching Article {i+1}: {url}")
+        article_data = me_extract_article_text(url)
+        articles.append(article_data)
+
+    # Write to JSON (overwrite mode)
+    with open("data/me_articles.json", "w", encoding="utf-8") as f:
+        json.dump(articles, f, ensure_ascii=False, indent=2)
+
+    print(f"\nSaved {len(articles)} articles to me_articles.json")

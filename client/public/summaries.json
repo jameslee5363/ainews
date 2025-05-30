@@ -1,0 +1,37 @@
+[
+    {
+      "id": "1",
+      "title": "US Proposes Hostage Deal Amid Truce Talks",
+      "summary": "The United States has outlined a proposal to release 10 Israeli hostages in exchange for a 60-day ceasefire. The deal, supported by Qatar and Egypt, seeks to pause fighting and allow humanitarian aid into Gaza. While Hamas has not formally accepted the terms, officials say negotiations are ongoing.",
+      "sources": [
+        {
+          "source": "Times of Israel",
+          "url": "https://www.timesofisrael.com/article-1",
+          "content": "US officials have drafted a proposal to free 10 hostages currently held in Gaza. The deal would include a temporary ceasefire and has the backing of both Egypt and Qatar. Israeli sources say the offer was made through indirect channels."
+        },
+        {
+          "source": "Middle East Eye",
+          "url": "https://www.middleeasteye.net/article-1",
+          "content": "A new US-led proposal may temporarily pause Israel’s assault on Gaza. The proposed 60-day truce would be contingent upon the release of 10 Israeli captives. Hamas has not agreed to the deal yet, and sources close to the group say conditions must be met."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Israeli Airstrikes Hit Rafah Despite Court Ruling",
+      "summary": "Israel launched new airstrikes on Rafah, defying a recent ruling by the International Court of Justice demanding a halt to its offensive. The strikes targeted what the IDF called militant infrastructure. Civilian casualties were reported, sparking international condemnation.",
+      "sources": [
+        {
+          "source": "Times of Israel",
+          "url": "https://www.timesofisrael.com/article-2",
+          "content": "Israeli fighter jets hit Rafah early Tuesday, focusing on what officials described as Hamas strongholds. The operation comes just days after an international court urged Israel to cease attacks in the southern Gaza city."
+        },
+        {
+          "source": "Middle East Eye",
+          "url": "https://www.middleeasteye.net/article-2",
+          "content": "Airstrikes resumed in Rafah, with multiple civilian casualties reported. Critics say Israel is ignoring the ICJ’s demand to stop operations in Gaza’s south. Videos from the ground show extensive damage to residential areas."
+        }
+      ]
+    }
+  ]
+  
