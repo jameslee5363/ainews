@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from pathlib import Path
+import json
+import os
 
 app = FastAPI()
 
@@ -12,8 +16,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/api/hello")
-def read_root():
-    return {"message": "Hello from FastAPI!"}
+@app.get("/api/combined-articles")
+def get_combined_articles():
+    path = Path(__file__).resolve().parent.parent / "data" / "combined_articles.json"
+    if not os.path.exists(path):
+        return JSONResponse({"error": "Data not found"}, status_code=404)
+
+    with open(path) as f:
+        data = json.load(f)          # ← this is already a list
+    return JSONResponse(data)        # ← send list, not {"data": list}
 
 # to run the server, use: uvicorn main:app --reload --port 8000

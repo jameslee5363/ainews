@@ -1,41 +1,23 @@
-// import { useEffect, useState } from 'react';
-
-// function App() {
-//   const [message, setMessage] = useState('Loading...');
-
-//   useEffect(() => {
-//     fetch('http://localhost:8000/api/hello')
-//       .then((res) => res.json())
-//       .then((data) => setMessage(data.message))
-//       .catch(() => setMessage('Error fetching message'));
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Frontend + FastAPI</h1>
-//       <p>{message}</p>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// // use npm run dev to start the frontend 
-
-import { Routes, Route, Navigate } from "react-router-dom"
-import Home from "./pages/Home"
-import Story from "./pages/Story"
+import { Routes, Route } from "react-router-dom";
+import CombinedArticles from "./components/CombinedArticles";
+import ArticlePage from "./ArticlePage"; 
+import "./index.css"; 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/story/:id" element={<Story />} />
-      {/* fallback for unknown paths */}
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  )
+    <div>
+      <header style={{ textAlign: "center", padding: "1rem 0", borderBottom: "1px solid #ddd" }}>
+        <h1 style={{ margin: 0 }}>📰 AI News Digest</h1>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<CombinedArticles />} />
+          <Route path="/article/:id" element={<ArticlePage />} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
 
-export default App
-
+export default App;

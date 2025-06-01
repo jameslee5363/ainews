@@ -1,6 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.articles-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.article-card {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+.article-card:hover {
+  transform: translateY(-2px);
+}
+
+.article-title {
+  margin: 0 0 0.5rem;
+}
+
+.article-summary {
+  margin: 0;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
