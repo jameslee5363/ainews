@@ -58,7 +58,7 @@ if __name__ == "__main__":
     me_article_links = me_get_article_links()
 
     articles = []
-    for i, url in enumerate(me_article_links[:5]):  # Limit for now
+    for i, url in enumerate(me_article_links):  # Limit for now
         print(f"Fetching Article {i+1}: {url}")
         article_data = me_extract_article_text(url)
         articles.append(article_data)

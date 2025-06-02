@@ -5,10 +5,12 @@ import "./index.css";
 
 function App() {
   return (
-    <div>
-      <header style={{ textAlign: "center", padding: "1rem 0", borderBottom: "1px solid #ddd" }}>
-        <h1 style={{ margin: 0 }}>📰 AI News Digest</h1>
+    <div className="app-container">
+      <header className="site-header">
+        <h1>📰 AI News Digest</h1>
       </header>
+
+      <p style={{ textAlign: "center"}}>Last updated on 6/01/25</p>
 
       <main>
         <Routes>

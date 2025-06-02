@@ -42,12 +42,11 @@ for i in range(len(is_articles)):
 # --- Sort all possible pairs by descending similarity ---
 similarity_pairs.sort(key=lambda x: x[2], reverse=True)
 
-# --- Track used indices ---
+# --- Greedy pairing for top 10 ---
 used_is_indices = set()
 used_me_indices = set()
 pairs = []
 
-# --- Greedy pairing ---
 for i, j, score in similarity_pairs:
     if i not in used_is_indices and j not in used_me_indices:
         pairs.append({
@@ -65,6 +64,9 @@ for i, j, score in similarity_pairs:
         })
         used_is_indices.add(i)
         used_me_indices.add(j)
+
+        if len(pairs) == 10:
+            break
         
 # --- Save to JSON ---
 os.makedirs("data", exist_ok=True)

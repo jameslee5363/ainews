@@ -22,7 +22,7 @@ def scrape_toi_articles():
 
     # Other articles
     articles = soup.select("div.item.template1.news div.headline a")
-    for a_tag in articles[:3]:  # limit to 3
+    for a_tag in articles:  # limit to 3
         if a_tag and 'href' in a_tag.attrs:
             links.append(a_tag['href'])
 
