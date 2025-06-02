@@ -9,7 +9,7 @@ export default function CombinedArticles() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/combined-articles")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/combined-articles`)
       .then((r) => r.json())
       .then((data) =>
         Array.isArray(data)
