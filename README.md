@@ -19,7 +19,7 @@ NeutralPress is a full-stack web application that uses GPT-4 and embeddings to c
 
 ## Tech Stack
 
-- **Frontend:** React (Vite), Tailwind CSS  
+- **Frontend:** React (Vite), CSS  
 - **Backend:** FastAPI, Python, OpenAI API  
 - **AI/ML:** GPT-4 for synthesis, `text-embedding-3-small` for similarity scoring  
 - **Deployment:** Vercel (frontend), Render (backend)
