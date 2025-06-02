@@ -7,7 +7,7 @@ export default function ArticlePage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/combined-articles")
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/combined-articles`)
       .then((res) => res.json())
       .then((data) => {
         const item = data[Number(id)];
