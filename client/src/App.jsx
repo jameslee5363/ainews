@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import CombinedArticlesMiddleEast from "./components/CombinedArticlesMiddleEast";
 import CombinedArticlesUS from "./components/CombinedArticlesUS";
 import MEArticlePage from "./MEArticlePage";
@@ -22,6 +22,7 @@ function App() {
 
       <main>
         <Routes>
+          <Route path="/" element={<Navigate to="/us" />} />
           <Route path="/us" element={<CombinedArticlesUS />} />
           <Route path="/middle-east" element={<CombinedArticlesMiddleEast />} />
           <Route path="/me-article/:id" element={<MEArticlePage />} />
