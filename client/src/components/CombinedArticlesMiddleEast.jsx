@@ -10,6 +10,7 @@ export default function CombinedArticles() {
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/api/combined-articles`)
+    //fetch("http://localhost:8000/api/combined-articles")
       .then((r) => r.json())
       .then((data) =>
         Array.isArray(data)
@@ -26,7 +27,7 @@ export default function CombinedArticles() {
   return (
     <div className="articles-container">
       {articles.map((item, idx) => (
-        <Link key={idx} to={`/article/${idx}`} className="article-card">
+        <Link key={idx} to={`/me-article/${idx}`} className="article-card">
           <h3 className="article-title">{item.combined_title || "Untitled"}</h3>
           <p className="article-summary">{item.summary}</p>
         </Link>

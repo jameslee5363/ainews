@@ -26,4 +26,14 @@ def get_combined_articles():
         data = json.load(f)          # ← this is already a list
     return JSONResponse(data)        # ← send list, not {"data": list}
 
+@app.get("/api/combined-articles-us")
+def get_combined_articles_us():
+    path = Path(__file__).resolve().parent.parent / "data_us" / "combined_articles.json"
+    if not os.path.exists(path):
+        return JSONResponse({"error": "Data not found"}, status_code=404)
+
+    with open(path) as f:
+        data = json.load(f)          # ← this is already a list
+    return JSONResponse(data)        # ← send list, not {"data": list}
+
 # to run the server, use: uvicorn main:app --reload --port 8000
