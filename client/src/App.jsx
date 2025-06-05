@@ -22,7 +22,6 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Navigate to="/us" />} />
           <Route path="/us" element={<CombinedArticlesUS />} />
           <Route path="/middle-east" element={<CombinedArticlesMiddleEast />} />
           <Route path="/me-article/:id" element={<MEArticlePage />} />
