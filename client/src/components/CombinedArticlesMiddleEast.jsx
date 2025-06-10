@@ -1,7 +1,6 @@
-// src/components/CombinedArticles.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../index.css"; 
+import "../index.css"; // ensure styles are applied
 
 export default function CombinedArticlesMiddleEast() {
   const [articles, setArticles] = useState([]);
@@ -10,12 +9,9 @@ export default function CombinedArticlesMiddleEast() {
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/api/combined-articles`)
-    //fetch("http://localhost:8000/api/combined-articles")
       .then((r) => r.json())
       .then((data) =>
-        Array.isArray(data)
-          ? setArticles(data)
-          : setError("Unexpected API response")
+        Array.isArray(data) ? setArticles(data) : setError("Unexpected API response")
       )
       .catch(() => setError("Could not load articles"))
       .finally(() => setLoading(false));
@@ -29,7 +25,6 @@ export default function CombinedArticlesMiddleEast() {
       {articles.map((item, idx) => (
         <Link key={idx} to={`/me-article/${idx}`} className="article-card">
           <h3 className="article-title">{item.combined_title || "Untitled"}</h3>
-          <p className="article-summary">{item.summary}</p>
         </Link>
       ))}
     </div>
